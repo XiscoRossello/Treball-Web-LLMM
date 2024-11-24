@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Venta de casa en excelente ubicación, ideal para tu familia.">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Casa en Venta | Inmobiliaria XYZ</title>
+    <link rel="stylesheet" href="styles/stylecasas.css">
+</head>
+<body>
+
+<header>
+    <nav aria-label="Primary Navigation">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a class="active" href="mallorca.html">Mallorca</a></li>
+            <li><a href="menorca.html">Menorca</a></li>
+            <li><a href="ibiza.html">Ibiza</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <!-- Slider de imágenes -->
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="images/casas/3/casa3_1.png" alt="Vista exterior de la casa">
+            </div>
+            <div class="slide">
+                <img src="images/casas/3/casa3_2.png" alt="Sala de la casa">
+            </div>
+            <div class="slide">
+                <img src="images/casas/3/casa3_3.png" alt="Cocina moderna">
+            </div>
+        
+            <div class="slide">
+                <img src="images/casas/3/casa3_4.png" alt="Vista exterior de la casa">
+            </div>
+            <div class="slide">
+                <img src="images/casas/3/casa3_5.png" alt="Sala de la casa">
+            </div>
+            <div class="slide">
+                <img src="images/casas/3/casa3_6.png" alt="Cocina moderna">
+            </div>
+            <div class="slide">
+                <img src="images/casas/3/casa3_7.png" alt="Sala de la casa">
+            </div>
+        
+    </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+    <!-- Detalles de la propiedad -->
+    <div class="details">
+        <h2>Casa en Venta - 3 Dormitorios</h2>
+        <p><strong>Ubicación:</strong> Calle Principal, Ciudad XYZ</p>
+        <p><strong>Superficie:</strong> 250 m² construidos</p>
+        <p><strong>Características:</strong></p>
+        <ul>
+            <li>4 Dormitorios espaciosos</li>
+            <li>3 Baños modernos</li>
+            <li>Cocina equipada</li>
+            <li>Jardín amplio</li>
+            <li>Garaje para 3 vehículos</li>
+            <li>Excelente ventilación natural</li>
+        </ul>
+        <p class="price">Precio: $150,000</p>
+    </div>
+</div>
+
+<!-- Sección de contacto -->
+<div class="contact-info">
+    <h3>¡Contáctanos para más información!</h3>
+    <p><strong>Teléfono:</strong> +34 666 66 66 66</p>
+    <p><strong>Email:</strong> contacto@inmobiliariamediterrraneo.com</p>
+    <p><strong>Dirección:</strong> Carrer de Caracas, 6, 07007, Palma</p>
+</div>
+
+<footer>
+    <p>&copy; 2024 Inmobiliaria Mediterráneo. Todos los derechos reservados.</p>
+    <nav aria-label="Social Media Links">
+        <ul>
+            <li><a href="https://wwww.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.x.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+    </nav>
+</footer>
+
+<script>
+    let currentSlide = 0;
+
+    function moveSlide(direction) {
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        currentSlide += direction;
+
+        if (currentSlide < 0) {
+            currentSlide = totalSlides - 1;
+        } else if (currentSlide >= totalSlides) {
+            currentSlide = 0;
+        }
+
+        // Desplazamiento horizontal en el contenedor de imágenes
+        const slideWidth = document.querySelector('.slide').offsetWidth;
+        slides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+    }
+</script>
+
+</body>
+</html>

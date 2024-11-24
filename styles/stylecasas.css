@@ -1,0 +1,305 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Asegura que html y body ocupen el 100% de la altura */
+    margin: 0; /* Elimina el margen predeterminado */
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    background-color: #f4f4f9;
+}
+
+/* Estilo del contenedor principal */
+main {
+    flex: 1; /* Permite que el main crezca y ocupe el espacio disponible */
+    padding: 2rem; /* Mantén el relleno que desees */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Sección principal de la página */
+section[aria-labelledby="inicio"] {
+    background-image: url(images/home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 400px; /* Puedes ajustar la altura según sea necesario */
+}
+
+#logo_inicio {
+    max-width: 100%; /* Asegura que la imagen no se salga del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+header {
+    background-color: #2c68ac;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+nav {
+    width: 100%; /* Asegura que el nav ocupe el ancho completo */
+}
+nav ul {
+    display: flex;
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+    list-style: none;
+    gap: 2rem; /* Aumenta el espacio entre los enlaces */
+    font-size: 1.2rem; /* Aumenta el tamaño de la fuente */
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease; /* Transición suave para el efecto */
+}
+nav a:hover {
+    background-color: #1c3b7f; /* Tono de azul oscuro */
+    border-radius: 4px; /* Opción para redondear los bordes del efecto hover */
+}
+
+nav a.active {
+    font-weight: bold;
+}
+
+/* Sección de búsqueda y filtros */
+section[aria-labelledby="menu-title"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+input[type="text"],
+select,
+button {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Sección de propiedades */
+section[aria-labelledby="properties-title"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center; /* Alinea las tarjetas al centro horizontalmente */
+}
+
+article {
+    background-color: #2c68ac;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+article img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Pie de página */
+footer {
+    background-color: #2c68ac;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+footer nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 1rem;
+}
+
+footer nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer p {
+    margin-bottom: 1rem;
+}
+
+/* Contenedor para elementos en filas */
+.container {
+    width: 100%;
+    margin: 20px auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+    padding: 10px;
+}
+
+/* Slider de imágenes */
+.slider {
+    width: 100%;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.slide img {
+    max-width: 100%;
+    max-height: 1000px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+ /* Navigation buttons for the slider */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%; /* Makes the button circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Remove extra padding for perfect centering */
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly darker on hover */
+}
+
+/* Detalles de la propiedad */
+.details {
+    width: 48%;
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Información de contacto */
+.contact-info {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    .details h2 {
+        font-size: 24px;
+    }
+
+    .details p {
+        font-size: 16px;
+    }
+
+    .contact-info h3 {
+        font-size: 20px;
+    }
+
+    .contact-info p {
+        font-size: 16px;
+    }
+
+    /* Hacer que los botones de navegación del slider desaparezcan en pantallas pequeñas */
+    .prev, .next {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    .details h2 {
+        font-size: 20px;
+    }
+
+    .details p {
+        font-size: 14px;
+    }
+
+    .contact-info h3 {
+        font-size: 18px;
+    }
+
+    .contact-info p {
+        font-size: 14px;
+    }
+
+    /* Hacer que los botones de navegación del slider desaparezcan en pantallas pequeñas */
+    .prev, .next {
+        display: none;
+    }
+}

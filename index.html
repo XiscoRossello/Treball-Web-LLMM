@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content=".......">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Inmobiliaria</title>
+</head>
+<body>
+    <header>
+        <nav aria-label="Primary Navigation">
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a class="active" href="index.html">Inicio</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="aboutus.html">Sobre nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section aria-labelledby="inicio">
+            <img id="logo_inicio" src="images/logo.png">
+        </section>
+        <h1>Inmobiliaria Mar Mediterráneo</h1>
+        <!-- Sección de búsqueda y filtros -->
+        <section aria-labelledby="menu-title">
+            <h2 id="menu-title">Buscar propiedades</h2>
+            <form id="islandForm">
+                <label for="filter">Elige tu isla:</label>
+                <select id="filter" name="filter" required>
+                    <option value="" disabled selected>.....</option>
+                    <option value="mallorca.html">Mallorca</option>
+                    <option value="menorca.html">Menorca</option>
+                    <option value="ibiza.html">Ibiza</option>
+                </select>
+                <button type="submit">Buscar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Inmobiliaria. Todos los derechos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.x.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
