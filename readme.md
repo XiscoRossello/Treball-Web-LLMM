@@ -1,147 +1,95 @@
 # Project's Folder and File Structure
 
-📂 Treball-Web-LLMM-main
-    📄 .DS_Store
-    📄 aboutus.html
-    📄 casa1.html
-    📄 casa10.html
-    📄 casa2.html
-    📄 casa3.html
-    📄 casa4.html
-    📄 casa5.html
-    📄 casa6.html
-    📄 casa7.html
-    📄 casa8.html
-    📄 casa9.html
-    📄 contact.html
-    📄 ibiza.html
-    📄 index.html
-    📄 mallorca.html
-    📄 menorca.html
-    📄 script.js
-    📂 images
-        📄 .DS_Store
-        📄 favicon.png
-        📄 home.jpg
-        📄 logo.png
-        📂 casas
-            📂 1
-                📄 casa 1.url
-                📄 casa1_1.png
-                📄 casa1_2.png
-                📄 casa1_3.png
-                📄 casa1_4.png
-                📄 casa1_5.png
-                📄 casa1_6.png
-                📄 casa1_7.png
-                📄 casa1_8.png
-            📂 10
-                📄 Casa10_1.png
-                📄 Casa10_10.png
-                📄 Casa10_2.png
-                📄 Casa10_3.png
-                📄 Casa10_4.png
-                📄 Casa10_5.png
-                📄 Casa10_6.png
-                📄 Casa10_7.png
-                📄 Casa10_8.png
-                📄 Casa10_9.png
-                📄 LINK CASA.docx
-            📂 2
-                📄 casa 2.url
-                📄 casa2_1.png
-                📄 casa2_2.png
-                📄 casa2_3.png
-                📄 casa2_4.png
-                📄 casa2_5.png
-                📄 casa2_6.png
-                📄 casa2_7.png
-                📄 casa2_8.png
-            📂 3
-                📄 casa 3.url
-                📄 casa3_1.png
-                📄 casa3_2.png
-                📄 casa3_3.png
-                📄 casa3_4.png
-                📄 casa3_5.png
-                📄 casa3_6.png
-                📄 casa3_7.png
-            📂 4
-                📄 casa 4.url
-                📄 casa4_1.jpg
-                📄 casa4_10.jpg
-                📄 casa4_11.jpg
-                📄 casa4_12.jpg
-                📄 casa4_2.jpg
-                📄 casa4_3.jpg
-                📄 casa4_4.jpg
-                📄 casa4_5.jpg
-                📄 casa4_6.jpg
-                📄 casa4_7.jpg
-                📄 casa4_8.jpg
-                📄 casa4_9.jpg
-            📂 5
-                📄 casa 5.url
-                📄 casa5_1.png
-                📄 casa5_2.png
-                📄 casa5_3.png
-                📄 casa5_4.png
-                📄 casa5_5.png
-                📄 casa5_6.png
-                📄 casa5_7.png
-                📄 casa5_8.png
-                📄 casa5_9.png
-            📂 6
-                📄 casa 6.url
-                📄 casa6_1.png
-                📄 casa6_10.png
-                📄 casa6_2.png
-                📄 casa6_3.png
-                📄 casa6_4.png
-                📄 casa6_5.png
-                📄 casa6_6.png
-                📄 casa6_7.png
-                📄 casa6_8.png
-                📄 casa6_9.png
-            📂 7
-                📄 Casa7_1.png
-                📄 Casa7_10.png
-                📄 Casa7_2.png
-                📄 Casa7_3.png
-                📄 Casa7_4.png
-                📄 Casa7_5.png
-                📄 Casa7_6.png
-                📄 Casa7_7.png
-                📄 Casa7_8.png
-                📄 Casa7_9.png
-            📂 8
-                📄 Casa8_1.png
-                📄 Casa8_2.png
-                📄 Casa8_3.png
-                📄 Casa8_4.png
-                📄 Casa8_5.png
-                📄 Casa8_6.png
-                📄 Casa8_7.png
-                📄 Casa8_8.png
-                📄 Casa8_9.png
-                📄 Link Casa.docx
-            📂 9
-                📄 Casa9_1.png
-                📄 Casa9_10.png
-                📄 Casa9_11.png
-                📄 Casa9_2.png
-                📄 Casa9_3.png
-                📄 Casa9_4.png
-                📄 Casa9_5.png
-                📄 Casa9_6.png
-                📄 Casa9_7.png
-                📄 Casa9_8.png
-                📄 Casa9_9.png
-                📄 LINK CASA.docx
-    📂 styles
-        📄 .DS_Store
-        📄 style.css
-        📄 stylecasas.css
+Treball-Web-LLMM-main  
+    .DS_Store  
+    aboutus.html  
+    casa1.html  
+    casa10.html  
+    casa2.html  
+    casa3.html  
+    casa4.html  
+    casa5.html  
+    casa6.html  
+    casa7.html  
+    casa8.html  
+    casa9.html  
+    contact.html  
+    ibiza.html  
+    index.html  
+    mallorca.html  
+    menorca.html  
+    script.js  
+
+images  
+    .DS_Store  
+    favicon.png  
+    home.jpg  
+    logo.png  
+
+    casas  
+        1  
+            casa 1.url  
+            casa1_1.png  
+            casa1_2.png  
+            casa1_3.png  
+            casa1_4.png  
+            casa1_5.png  
+            casa1_6.png  
+            casa1_7.png  
+            casa1_8.png  
+
+        10  
+            Casa10_1.png  
+            Casa10_10.png  
+            Casa10_2.png  
+            Casa10_3.png  
+            Casa10_4.png  
+            Casa10_5.png  
+            Casa10_6.png  
+            Casa10_7.png  
+            Casa10_8.png  
+            Casa10_9.png  
+            LINK CASA.docx  
+
+        2  
+            casa 2.url  
+            casa2_1.png  
+            casa2_2.png  
+            casa2_3.png  
+            casa2_4.png  
+            casa2_5.png  
+            casa2_6.png  
+            casa2_7.png  
+            casa2_8.png  
+
+        3  
+            casa 3.url  
+            casa3_1.png  
+            casa3_2.png  
+            casa3_3.png  
+            casa3_4.png  
+            casa3_5.png  
+            casa3_6.png  
+            casa3_7.png  
+
+        4  
+            casa 4.url  
+            casa4_1.jpg  
+            casa4_10.jpg  
+            casa4_11.jpg  
+            casa4_12.jpg  
+            casa4_2.jpg  
+            casa4_3.jpg  
+            casa4_4.jpg  
+            casa4_5.jpg  
+            casa4_6.jpg  
+            casa4_7.jpg  
+
+styles  
+    .DS_Store  
+    style.css  
+    stylecasas.css  
+
 
 
 # Inmobiliaria Mar Mediterráneo
