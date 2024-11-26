@@ -26,19 +26,19 @@ images
     home.jpg  
     logo.png  
 
-    casas  
-        1  
-            casa 1.url  
-            casa1_1.png  
-            casa1_2.png  
-            casa1_3.png  
-            casa1_4.png  
-            casa1_5.png  
-            casa1_6.png  
-            casa1_7.png  
-            casa1_8.png  
-
-        10  
+ casas  
+      1  
+        casa 1.url  
+        casa1_1.png  
+        casa1_2.png  
+        casa1_3.png  
+        casa1_4.png  
+        casa1_5.png  
+        casa1_6.png  
+        casa1_7.png  
+        casa1_8.png  
+        
+10  
             Casa10_1.png  
             Casa10_10.png  
             Casa10_2.png  
@@ -51,7 +51,7 @@ images
             Casa10_9.png  
             LINK CASA.docx  
 
-        2  
+2  
             casa 2.url  
             casa2_1.png  
             casa2_2.png  
@@ -62,7 +62,7 @@ images
             casa2_7.png  
             casa2_8.png  
 
-        3  
+  3  
             casa 3.url  
             casa3_1.png  
             casa3_2.png  
@@ -72,7 +72,7 @@ images
             casa3_6.png  
             casa3_7.png  
 
-        4  
+  4  
             casa 4.url  
             casa4_1.jpg  
             casa4_10.jpg  
