@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Metadatos y enlaces a hojas de estilo y fuentes -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Contacta con Inmobiliaria Mediterráneo">
@@ -10,7 +11,7 @@
     <title>Contacto | Inmobiliaria Mediterráneo</title>
 </head>
 <body>
-    <header>
+    <header>  <!-- Barra de navegación con menú hamburguesa y enlaces -->
         <nav aria-label="Primary Navigation">
             <div class="hamburger">
                 <div></div>
@@ -28,44 +29,52 @@
     <main>
         <h1>Contacta con Nosotros</h1>
         
+        <!-- Sección del formulario de contacto -->
         <section class="contact-form">
             <h2>Formulario de Contacto</h2>
             <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
-            <div class="form-group">
-                <label for="name">Nombre completo:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
+                <!-- Campo de entrada para el nombre -->
+                <div class="form-group">
+                    <label for="name">Nombre completo:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
 
-            <div class="form-group">
-                <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Introduce una dirección de correo válida">
-            </div>
+                <!-- Campo de entrada para el correo electrónico con validación de patrón -->
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Introduce una dirección de correo válida">
+                </div>
 
-            <div class="form-group">
-                <label for="phone">Teléfono:</label>
-                <input type="tel" id="phone" name="phone">
-            </div>
+                <!-- Campo de entrada para el teléfono -->
+                <div class="form-group">
+                    <label for="phone">Teléfono:</label>
+                    <input type="tel" id="phone" name="phone" required pattern="\+[0-9]{1,3}\s?[0-9]{4,14}(?:x.+)?$" title="Introduce un número de teléfono válido">
+                </div>
 
-            <div class="form-group">
-                <label for="subject">Asunto:</label>
-                <select id="subject" name="subject" required>
-                <option value="" disabled selected>Selecciona un asunto</option>
-                <option value="consulta">Consulta general</option>
-                <option value="propiedad">Información sobre una propiedad</option>
-                <option value="venta">Vender una propiedad</option>
-                <option value="otro">Otro</option>
-                </select>
-            </div>
+                <!-- Menú desplegable para el asunto -->
+                <div class="form-group">
+                    <label for="subject">Asunto:</label>
+                    <select id="subject" name="subject" required>
+                        <option value="" disabled selected>Selecciona un asunto</option>
+                        <option value="consulta">Consulta general</option>
+                        <option value="propiedad">Información sobre una propiedad</option>
+                        <option value="venta">Vender una propiedad</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="message">Mensaje:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
+                <!-- Área de texto para el mensaje -->
+                <div class="form-group">
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
 
-            <button type="submit">Enviar mensaje</button>
+                <!-- Botón de envío -->
+                <button type="submit">Enviar mensaje</button>
             </form>
         </section>
 
+        <!-- Sección de información de contacto -->
         <section class="contact-info">
             <h2>Información de Contacto</h2>
             <div class="contact-details">
@@ -78,6 +87,7 @@
     </main>
 
     <footer>
+        <!-- Pie de página con derechos de autor y enlaces a redes sociales -->
         <p>&copy; 2024 Inmobiliaria Mediterráneo. Todos los derechos reservados.</p>
         <div class="social-icons">
             <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -86,6 +96,7 @@
         </div>
     </footer>
 
+    <!-- Enlace a archivo JavaScript externo -->
     <script src="script.js"></script>
 </body>
-</html></div></section></div>
+</html>
