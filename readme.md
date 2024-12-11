@@ -166,6 +166,158 @@ Este proyecto es un sitio web para una inmobiliaria ficticia llamada "Inmobiliar
 5. **Galerías de Imágenes**:
    - Carpetas específicas de propiedades con múltiples imágenes (`casaX_Y.png` o `.jpg`) sugieren galerías detalladas para visualizar las propiedades.
 
+## Modificaciones realizadas en los archivos HTML, CSS
+
+### formcheckbox.html
+- El formulario incluye campos para nombre, correo electrónico, teléfono, tipo de propiedad, rango de precio, intereses (comprar, alquilar, vender) y un área de texto para comentarios. Los botones y campos están estilizados para ser amigables y accesibles. El botón de envío está etiquetado como "Suscribirme".
+
+### index.html
+
+#### Estilos para el popup (lineas 11-51)
+
+Este bloque de código CSS define los estilos para un popup en una página web. 
+
+1. **Clase .popup:**
+- Posiciona el popup de manera fija en toda la pantalla (position: fixed).
+- Ocupa el 100% del ancho y alto de la pantalla.
+- Aplica un fondo semitransparente negro (background-color: rgba(0, 0, 0, 0.5)).
+- Centra el contenido del popup tanto horizontal como verticalmente (display: flex, justify-content: center, align-items: center).
+- Inicialmente, el popup es invisible (visibility: hidden, opacity: 0).
+- Añade una transición suave para la visibilidad y opacidad (transition: visibility 0s, opacity 0.5s).
+- Asegura que el popup esté por encima de otros elementos (z-index: 1000).
+
+2. **Clase .popup.active:**
+- Hace visible el popup (visibility: visible, opacity: 1).
+
+3. **Clase .popup-content:**
+- Establece el fondo blanco para el contenido del popup.
+- Añade padding, bordes redondeados y sombra para darle estilo.
+- Limita el ancho máximo a 500px y ajusta el ancho al 100% del contenedor.
+
+4. **Estilos para button:**
+- Define el estilo de los botones dentro del popup.
+- Aplica un color de fondo azul y texto blanco.
+- Añade padding, bordes redondeados y un cursor de puntero.
+- Cambia el color de fondo al pasar el cursor sobre el botón (:hover).
+  
+Estos estilos aseguran que el popup sea visualmente atractivo y funcional, apareciendo y desapareciendo suavemente cuando se activa o desactiva.
+
+#### Formulario Popup (lineas 89-161)
+
+Este código HTML define un formulario de suscripción inmobiliaria dentro de un popup.
+
+1. **Contenedor del Popup:**
+- <div class="popup" id="popup"> contiene el formulario y lo centra en la pantalla.
+  
+2. **Contenido del Popup:**
+- <div class="popup-content"> estiliza el contenido del popup.
+
+3. **Formulario:**
+- <form id="subscriptionForm" action="tu-script-o-endpoint" method="POST"> define el formulario con el método POST.
+
+4. **Campos del Formulario:**
+- Nombre Completo: <input type="text" id="nombre" name="nombre" required>
+- Correo Electrónico: <input type="email" id="email" name="email" required>
+- Teléfono: <input type="tel" id="telefono" name="telefono" placeholder="Ej: +34666666666">
+- Tipo de Propiedad: <select id="tipo" name="tipo" required> con opciones para casa, apartamento, oficina y terreno.
+- Rango de Precio: <select id="precio" name="precio"> con varias opciones de rango de precios.
+- Intereses: Checkboxes para comprar, alquilar o vender propiedad.
+- Comentarios: <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tus comentarios aquí..."></textarea>
+- Botón de Envío: <button type="submit">Suscribirme</button> para enviar el formulario.
+
+El formulario está diseñado para ser claro y fácil de usar, capturando toda la información necesaria para la suscripción inmobiliaria.
+
+#### Script para el popup (lineas 173-185)
+
+El código JavaScript proporcionado gestiona la visualización y el comportamiento de envío de un formulario en un popup.
+
+1. **Mostrar el popup al cargar la página:**
+- La función window.onload se ejecuta cuando toda la página ha terminado de cargarse.
+- Dentro de esta función, se selecciona el elemento con el ID popup (document.getElementById('popup')) y se le añade la clase active (classList.add('active')).
+- Esto hace que el popup sea visible al aplicar los estilos CSS definidos para la clase .popup.active.
+
+2. **Cerrar el popup al enviar el formulario:**
+- Se añade un evento onsubmit al formulario con el ID subscriptionForm (document.getElementById('subscriptionForm').onsubmit).
+- Cuando el formulario se envía, se ejecuta una función que previene el comportamiento predeterminado del formulario (event.preventDefault()).
+- Esto permite ejecutar lógica personalizada antes de que el formulario se envíe realmente.
+- Dentro de esta función, se selecciona el elemento con el ID popup y se le quita la clase active (classList.remove('active')), lo que oculta el popup.
+- El comentario // Aquí puedes añadir la lógica para enviar el formulario indica dónde se puede añadir código adicional para manejar el envío del formulario, como enviar los datos del formulario a un servidor.
+
+En resumen, este script asegura que el popup se muestre cuando la página se carga y se oculte cuando el formulario se envía, permitiendo además la inclusión de lógica personalizada para el manejo del envío del formulario.
+
+### style.css (lineas 191-)
+
+El código CSS define los estilos para un popup:
+
+1. **Clase .popup:**
+- Posiciona el popup de manera fija en toda la pantalla (position: fixed).
+- Ocupa el 100% del ancho y alto de la pantalla.
+- Fondo semitransparente negro (background-color: rgba(0, 0, 0, 0.5)).
+- Usa flexbox para centrar el contenido (display: flex; justify-content: center; align-items: center).
+- Inicialmente oculto (visibility: hidden; opacity: 0).
+- Transición suave para visibilidad y opacidad (transition: visibility 0s, opacity 0.5s).
+
+2. **Clase .popup.active:**
+- Hace visible el popup (visibility: visible; opacity: 1).
+
+3. **Clase .popup-content:**
+- Fondo blanco (background: #ffffff).
+- Padding de 20px.
+- Bordes redondeados (border-radius: 5px).
+- Sombra sutil (box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)).
+- Ancho máximo de 500px (max-width: 500px) y ocupa el 100% del contenedor (width: 100%).
+
+## Formularios
+
+![Formulario de suscripción para las novedades que interesarían el cliente](formulario-suscripcion.png)
+
+**Campos del formulario de suscripción**
+
+- Nombre Completo: <input type="text" id="nombre" name="nombre" required>
+- Correo Electrónico: <input type="email" id="email" name="email" required>
+- Teléfono: <input type="tel" id="telefono" name="telefono" placeholder="Ej: +34666666666">
+- Tipo de Propiedad: <select id="tipo" name="tipo" required> con opciones para casa, apartamento, oficina y terreno.
+- Rango de Precio: <select id="precio" name="precio"> con varias opciones de rango de precios.
+- Intereses: Checkboxes para comprar, alquilar o vender propiedad.
+- Comentarios: <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tus comentarios aquí..."></textarea>
+- Botón de Envío: <button type="submit">Suscribirme</button> para enviar el formulario.
+
+![Formulario de contacto](formulario-contacto.png)
+
+**Campos del formulario de contacto**
+
+- Nombre Completo: <input type="text" id="name" name="name" required>
+- Correo Electrónico: <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Introduce una dirección de correo válida">
+- Teléfono: <input type="tel" id="phone" name="phone" required pattern="\+[0-9]{1,3}\s?[0-9]{4,14}(?:x.+)?$" title="Introduce un número de teléfono válido">
+- Asunto: <select id="subject" name="subject" required> con opciones para consulta general, información sobre una propiedad, vender una propiedad y otro.
+- Mensaje: <textarea id="message" name="message" rows="5" required></textarea>
+- Botón de Envío: <button type="submit">Enviar mensaje</button>
+
+## Expresiones regulares para la validación
+
+1. **Correo Electrónico**:
+   ```regex
+   [a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$
+
+- Descripción: Esta expresión regular valida que el campo de correo electrónico tenga un formato correcto.
+- Componentes:
+  - [a-z0-9._%+-]+: Uno o más caracteres que pueden ser letras minúsculas, números, puntos, guiones bajos, porcentajes, signos más o guiones.
+  - @: Un símbolo arroba obligatorio.
+  - [a-z0-9.-]+: Uno o más caracteres que pueden ser letras minúsculas, números, puntos o guiones.
+  - \.: Un punto literal.
+  - [a-z]{2,}$: Dos o más letras minúsculas al final de la cadena.
+
+2. **Teléfono:**
+   ```regex
+   \+[0-9]{1,3}\s?[0-9]{4,14}(?:x.+)?$
+
+- Descripción: Esta expresión regular valida que el campo de teléfono tenga un formato internacional correcto.
+- Componentes:
+  - \+: Un símbolo más obligatorio al inicio.
+  - [0-9]{1,3}: De uno a tres dígitos numéricos para el código de país.
+  - \s?: Un espacio opcional.
+  - [0-9]{4,14}: De cuatro a catorce dígitos numéricos para el número de teléfono.
+
 ## Roles y Contribuciones
 
 ### Miembros del Equipo y Sus Responsabilidades
@@ -176,12 +328,14 @@ Este proyecto es un sitio web para una inmobiliaria ficticia llamada "Inmobiliar
   - Desarrollo de la página principal (`index.html`).
   - Creación de las páginas regionales (`mallorca.html`, `menorca.html`, `ibiza.html`).
   - Enlace de todo el contenido para asegurar la cohesión en el sitio web.
+  - Creación del formulario de suscripción y su comportamiento
 
 #### **Ferran**
 - **Rol**: Desarrollador, Contribuidor de Contenido
 - **Responsabilidades**:
   - Diseño y desarrollo de las páginas individuales de propiedades para las casas 6 a 10 (`casa6.html` a `casa10.html`).
   - Contribución a la documentación del proyecto.
+  - Creación del formulario de contacto y su comportamiento
 
 #### **Stepan**
 - **Rol**: Desarrollador, Contribuidor de Contenido
