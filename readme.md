@@ -273,25 +273,25 @@ El código CSS define los estilos para un popup:
 
 **Campos del formulario de suscripción**
 
-- Nombre Completo: <input type="text" id="nombre" name="nombre" required>
-- Correo Electrónico: <input type="email" id="email" name="email" required>
-- Teléfono: <input type="tel" id="telefono" name="telefono" placeholder="Ej: +34666666666">
-- Tipo de Propiedad: <select id="tipo" name="tipo" required> con opciones para casa, apartamento, oficina y terreno.
-- Rango de Precio: <select id="precio" name="precio"> con varias opciones de rango de precios.
-- Intereses: Checkboxes para comprar, alquilar o vender propiedad.
-- Comentarios: <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tus comentarios aquí..."></textarea>
-- Botón de Envío: <button type="submit">Suscribirme</button> para enviar el formulario.
+- Nombre Completo
+- Correo Electrónico
+- Teléfono
+- Tipo de Propiedad
+- Rango de Precio
+- Intereses
+- Comentarios
+- Botón de Envío
 
 ![Formulario de contacto](formulario-contacto.png)
 
 **Campos del formulario de contacto**
 
-- Nombre Completo: <input type="text" id="name" name="name" required>
-- Correo Electrónico: <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Introduce una dirección de correo válida">
-- Teléfono: <input type="tel" id="phone" name="phone" required pattern="\+[0-9]{1,3}\s?[0-9]{4,14}(?:x.+)?$" title="Introduce un número de teléfono válido">
-- Asunto: <select id="subject" name="subject" required> con opciones para consulta general, información sobre una propiedad, vender una propiedad y otro.
-- Mensaje: <textarea id="message" name="message" rows="5" required></textarea>
-- Botón de Envío: <button type="submit">Enviar mensaje</button>
+- Nombre Completo
+- Correo Electrónico
+- Teléfono
+- Asunto
+- Mensaje
+- Botón de Envío
 
 ## Expresiones regulares para la validación
 
