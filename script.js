@@ -81,3 +81,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const socialIcons = document.querySelectorAll('.social-icons a');
+    
+    socialIcons.forEach(icon => {
+        icon.addEventListener('mouseover', function() {
+            this.style.color = '#FFD700'; // Golden yellow
+        });
+        
+        icon.addEventListener('mouseout', function() {
+            this.style.color = 'white';
+        });
+    });
+});
