@@ -117,6 +117,10 @@ Este proyecto es un sitio web para una inmobiliaria ficticia llamada "Inmobiliar
   - Validación de formularios
   - Efectos hover en iconos de redes sociales (cambio de color blanco a dorado)
   - Sistema de mensajes y comentarios con funcionalidad de mostrar/ocultar
+- Archivos casas : `casax.html`.
+   - Ampliar imagen al clicar sobre ella
+   - Boton de mostrar, ocultar precio
+   - Botones de carrusel de imagenes
 
 ### **Font Awesome**
 - Utilizado para añadir iconos de redes sociales y otros iconos gráficos.
@@ -349,6 +353,8 @@ El código CSS define los estilos para un popup:
   - Contribución a la documentación del proyecto.
   - Creación del formulario de contacto y su comportamiento
   - Desarrollo del sistema de mensajes y comentarios
+  - Implementacion de mostrar/ocultar precio de las propiedades.
+  - Implementacion agrandar imagenes del carrusel.
 
 #### **Stepan**
 - **Rol**: Desarrollador, Contribuidor de Contenido
