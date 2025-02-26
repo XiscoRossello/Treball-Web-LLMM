@@ -9,6 +9,7 @@ document.getElementById('islandForm').addEventListener('submit', function(event)
     }
 });
 
+// Hamburger menu functionality
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('nav ul');
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Slider functionality
 let currentSlide = 0;
 
 function moveSlide(direction) {
@@ -38,7 +40,44 @@ function moveSlide(direction) {
         currentSlide = 0;
     }
 
-    // Desplazamiento horizontal en el contenedor de imágenes
     const slideWidth = document.querySelector('.slide').offsetWidth;
     slides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
 }
+
+// Comments section functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const showMessagesBtn = document.getElementById('showMessages');
+    const messagesList = document.getElementById('messagesList');
+
+    if (showMessagesBtn && messagesList) {
+        showMessagesBtn.addEventListener('click', function() {
+            if (messagesList.style.display === 'none') {
+                messagesList.style.display = 'block';
+                this.textContent = 'Cerrar comentarios';
+            } else {
+                messagesList.style.display = 'none';
+                this.textContent = 'Abrir sección de comentarios';
+            }
+        });
+    }
+
+    const sendQuickMessage = document.getElementById('sendQuickMessage');
+    if (sendQuickMessage) {
+        sendQuickMessage.addEventListener('click', function() {
+            const name = document.getElementById('quickName').value;
+            const message = document.getElementById('quickMessage').value;
+            
+            if (name && message) {
+                const commentDiv = document.createElement('div');
+                commentDiv.className = 'message-item';
+                commentDiv.innerHTML = `<strong>${name}:</strong> ${message}`;
+                document.getElementById('commentsContainer').prepend(commentDiv);
+                
+                document.getElementById('quickName').value = '';
+                document.getElementById('quickMessage').value = '';
+            } else {
+                alert('Por favor, rellena todos los campos');
+            }
+        });
+    }
+});
