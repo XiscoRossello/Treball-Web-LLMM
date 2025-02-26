@@ -35,44 +35,43 @@
         <!-- Sección del formulario de contacto -->
         <section class="contact-form">
             <h2>Formulario de Contacto</h2>
-            <form style="display: flex; flex-direction: column; gap: 1rem;">
-                <!-- Campo de entrada para el nombre -->
+            <form id="contactForm" onsubmit="return validateForm(event)" style="display: flex; flex-direction: column; gap: 1rem;">
                 <div class="form-group">
                     <label for="name">Nombre completo:</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name">
+                    <span class="error-message" id="nameError"></span>
                 </div>
 
-                <!-- Campo de entrada para el correo electrónico con validación de patrón -->
                 <div class="form-group">
                     <label for="email">Correo electrónico:</label>
-                    <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Introduce una dirección de correo válida">
+                    <input type="email" id="email" name="email">
+                    <span class="error-message" id="emailError"></span>
                 </div>
 
-                <!-- Campo de entrada para el teléfono -->
                 <div class="form-group">
                     <label for="phone">Teléfono:</label>
-                    <input type="tel" id="phone" name="phone" required pattern="\+[0-9]{1,3}\s?[0-9]{4,14}(?:x.+)?$" title="Introduce un número de teléfono válido">
+                    <input type="tel" id="phone" name="phone">
+                    <span class="error-message" id="phoneError"></span>
                 </div>
 
-                <!-- Menú desplegable para el asunto -->
                 <div class="form-group">
                     <label for="subject">Asunto:</label>
-                    <select id="subject" name="subject" required>
+                    <select id="subject" name="subject">
                         <option value="" disabled selected>Selecciona un asunto</option>
                         <option value="consulta">Consulta general</option>
                         <option value="propiedad">Información sobre una propiedad</option>
                         <option value="venta">Vender una propiedad</option>
                         <option value="otro">Otro</option>
                     </select>
+                    <span class="error-message" id="subjectError"></span>
                 </div>
 
-                <!-- Área de texto para el mensaje -->
                 <div class="form-group">
                     <label for="message">Mensaje:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                    <span class="error-message" id="messageError"></span>
                 </div>
 
-                <!-- Botón de envío -->
                 <button type="submit">Enviar mensaje</button>
             </form>
         </section>
@@ -146,5 +145,68 @@
             }
         });
     </script>
+<!-- Add before closing </body> tag -->
+<style>
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+    display: block;
+}
+</style>
+
+<script>
+function validateForm(event) {
+    event.preventDefault();
+    let isValid = true;
+    
+    // Clear previous error messages
+    document.querySelectorAll('.error-message').forEach(error => error.textContent = '');
+    
+    // Name validation
+    const name = document.getElementById('name').value.trim();
+    if (name.length < 3) {
+        document.getElementById('nameError').textContent = 'El nombre debe tener al menos 3 caracteres';
+        isValid = false;
+    }
+    
+    // Email validation
+    const email = document.getElementById('email').value.trim();
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) {
+        document.getElementById('emailError').textContent = 'Introduce un correo electrónico válido';
+        isValid = false;
+    }
+    
+    // Phone validation
+    const phone = document.getElementById('phone').value.trim();
+    const phoneRegex = /^\+34\s?[6-9][0-9]{8}$/;
+    if (!phoneRegex.test(phone)) {
+        document.getElementById('phoneError').textContent = 'Introduce un número de teléfono válido (+34 XXXXXXXXX)';
+        isValid = false;
+    }
+    
+    // Subject validation
+    const subject = document.getElementById('subject').value;
+    if (!subject) {
+        document.getElementById('subjectError').textContent = 'Selecciona un asunto';
+        isValid = false;
+    }
+    
+    // Message validation
+    const message = document.getElementById('message').value.trim();
+    if (message.length < 10) {
+        document.getElementById('messageError').textContent = 'El mensaje debe tener al menos 10 caracteres';
+        isValid = false;
+    }
+    
+    if (isValid) {
+        alert('Formulario enviado correctamente');
+        document.getElementById('contactForm').reset();
+    }
+    
+    return isValid;
+}
+</script>
 </body>
 </html>
