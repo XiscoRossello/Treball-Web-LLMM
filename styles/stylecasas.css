@@ -303,3 +303,31 @@ footer p {
         display: none;
     }
 }
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.toggle-button {
+    display: inline-block;
+    background-color: #1c3b7f; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+.toggle-button:hover {
+    background-color: #001d41;
+}
+

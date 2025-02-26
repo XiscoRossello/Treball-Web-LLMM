@@ -8,6 +8,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Casa en Venta | Inmobiliaria XYZ</title>
     <link rel="stylesheet" href="styles/stylecasas.css">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .modal .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -26,35 +59,23 @@
     <!-- Slider de imágenes -->
     <div class="slider">
         <div class="slides">
-            <div class="slide">
-                <img src="images/casas/4/casa4_1.jpg" alt="Vista exterior de la casa">
-            </div>
-            <div class="slide">
-                <img src="images/casas/4/casa4_2.jpg" alt="Sala de la casa">
-            </div>
-            <div class="slide">
-                <img src="images/casas/4/casa4_3.jpg" alt="Cocina moderna">
-            </div>
-        
-            <div class="slide">
-                <img src="images/casas/4/casa4_4.jpg" alt="Vista exterior de la casa">
-            </div>
-            <div class="slide">
-                <img src="images/casas/4/casa4_5.jpg" alt="Sala de la casa">
-            </div>
-            <div class="slide">
-                <img src="images/casas/4/casa4_6.jpg" alt="Cocina moderna">
-            </div>
-            <div class="slide">
-                <img src="images/casas/4/casa4_7.jpg" alt="Sala de la casa">
-            </div>
-            <div class="slide">
-                <img src="images/casas/4/casa4_8.jpg" alt="Cocina moderna">
-            </div>
-        
-    </div>
+            <div class="slide"><img src="images/casas/4/casa4_1.jpg" alt="Vista exterior de la casa" onclick="openModal(this)"></div>
+            <div class="slide"><img src="images/casas/4/casa4_2.jpg" alt="Sala de la casa" onclick="openModal(this)"></div>
+            <div class="slide"><img src="images/casas/4/casa4_3.jpg" alt="Cocina moderna" onclick="openModal(this)"></div>
+            <div class="slide"><img src="images/casas/4/casa4_4.jpg" alt="Vista exterior de la casa" onclick="openModal(this)"></div>
+            <div class="slide"><img src="images/casas/4/casa4_5.jpg" alt="Sala de la casa" onclick="openModal(this)"></div>
+            <div class="slide"><img src="images/casas/4/casa4_6.jpg" alt="Cocina moderna" onclick="openModal(this)"></div>
+            <div class="slide"><img src="images/casas/4/casa4_7.jpg" alt="Sala de la casa" onclick="openModal(this)"></div>
+            <div class="slide"><img src="images/casas/4/casa4_8.jpg" alt="Cocina moderna" onclick="openModal(this)"></div>
+        </div>
         <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
         <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <!-- Modal para ampliar la imagen -->
+    <div class="modal" id="imageModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImage">
     </div>
 
     <!-- Detalles de la propiedad -->
@@ -71,7 +92,8 @@
             <li>Garaje para 3 vehículos</li>
             <li>Excelente ventilación natural</li>
         </ul>
-        <p class="price">Precio: $150,000</p>
+        <p class="price hidden" id="price">Precio: $150,000</p>
+        <button class="toggle-button" id="toggleButton" onclick="togglePrice()">Mostrar Precio</button>
     </div>
 </div>
 
@@ -87,7 +109,7 @@
     <p>&copy; 2024 Inmobiliaria Mediterráneo. Todos los derechos reservados.</p>
     <nav aria-label="Social Media Links">
         <ul>
-            <li><a href="https://wwww.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
             <li><a href="https://www.x.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
         </ul>
@@ -96,6 +118,9 @@
 
 <script>
     let currentSlide = 0;
+    let scale = 1;
+    let isDragging = false;
+    let startX, startY, imgX = 0, imgY = 0;
 
     function moveSlide(direction) {
         const slides = document.querySelector('.slides');
@@ -109,10 +134,79 @@
             currentSlide = 0;
         }
 
-        // Desplazamiento horizontal en el contenedor de imágenes
         const slideWidth = document.querySelector('.slide').offsetWidth;
         slides.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
     }
+
+    function openModal(imgElement) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+
+        modal.style.display = "flex";
+        modalImg.src = imgElement.src;
+
+        // Reset zoom y posición
+        scale = 1;
+        imgX = 0;
+        imgY = 0;
+        modalImg.style.transform = "scale(1) translate(0px, 0px)";
+    }
+
+    function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+    }
+
+    // Zoom con la rueda del mouse
+    document.getElementById("modalImage").addEventListener("wheel", function(event) {
+        event.preventDefault();
+
+        let zoomFactor = 0.1;
+        if (event.deltaY < 0) {
+            scale += zoomFactor; // Zoom in
+        } else {
+            scale = Math.max(1, scale - zoomFactor); // Zoom out (mínimo 1)
+        }
+
+        this.style.transform = `scale(${scale}) translate(${imgX}px, ${imgY}px)`;
+    });
+
+    // Arrastrar la imagen al hacer zoom
+    document.getElementById("modalImage").addEventListener("mousedown", function(event) {
+        if (scale > 1) {
+            isDragging = true;
+            startX = event.clientX - imgX;
+            startY = event.clientY - imgY;
+            this.style.cursor = "grabbing";
+        }
+    });
+
+    document.addEventListener("mousemove", function(event) {
+        if (isDragging) {
+            imgX = event.clientX - startX;
+            imgY = event.clientY - startY;
+            document.getElementById("modalImage").style.transform = `scale(${scale}) translate(${imgX}px, ${imgY}px)`;
+        }
+    });
+
+    document.addEventListener("mouseup", function() {
+        isDragging = false;
+        document.getElementById("modalImage").style.cursor = "grab";
+    });
+
+    function togglePrice() {
+        const priceElement = document.getElementById("price");
+        const button = document.getElementById("toggleButton");
+
+        priceElement.classList.toggle("visible");
+        priceElement.classList.toggle("hidden");
+
+        if (priceElement.classList.contains("visible")) {
+            button.textContent = "Ocultar Precio";
+        } else {
+            button.textContent = "Mostrar Precio";
+        }
+    }
+
 </script>
 
 </body>
