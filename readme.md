@@ -111,7 +111,12 @@ Este proyecto es un sitio web para una inmobiliaria ficticia llamada "Inmobiliar
 ### **JavaScript**
 - Utilizado para añadir interactividad al sitio web.
 - Archivo principal: `script.js`.
-- Funcionalidades: Menú hamburguesa, slider de imágenes, validación de formularios.
+- Funcionalidades: 
+  - Menú hamburguesa
+  - Slider de imágenes
+  - Validación de formularios
+  - Efectos hover en iconos de redes sociales (cambio de color blanco a dorado)
+  - Sistema de mensajes y comentarios con funcionalidad de mostrar/ocultar
 
 ### **Font Awesome**
 - Utilizado para añadir iconos de redes sociales y otros iconos gráficos.
@@ -143,7 +148,13 @@ Este proyecto es un sitio web para una inmobiliaria ficticia llamada "Inmobiliar
    - Estilos CSS responsivos para asegurar una buena visualización en dispositivos móviles y de escritorio.
 
 6. **Elementos Interactivos**:
-   - Archivo `script.js` para añadir funcionalidades dinámicas como sliders de imágenes y validación de formularios.
+   - Archivo `script.js` para añadir funcionalidades dinámicas como:
+     - Sliders de imágenes
+     - Validación de formularios
+     - Efectos hover en iconos sociales del footer
+     - Menú hamburguesa responsive
+     - Sistema de comentarios con botones para mostrar/ocultar
+     - Envío de mensajes rápidos con nombre y contenido
 
 7. **Branding**:
    - Incluye un logo (`images/logo.png`) y favicon (`images/favicon.png`) para una marca visual consistente.
@@ -329,6 +340,7 @@ El código CSS define los estilos para un popup:
   - Creación de las páginas regionales (`mallorca.html`, `menorca.html`, `ibiza.html`).
   - Enlace de todo el contenido para asegurar la cohesión en el sitio web.
   - Creación del formulario de suscripción y su comportamiento
+  - Implementación de efectos interactivos en iconos de redes sociales
 
 #### **Ferran**
 - **Rol**: Desarrollador, Contribuidor de Contenido
@@ -336,6 +348,7 @@ El código CSS define los estilos para un popup:
   - Diseño y desarrollo de las páginas individuales de propiedades para las casas 6 a 10 (`casa6.html` a `casa10.html`).
   - Contribución a la documentación del proyecto.
   - Creación del formulario de contacto y su comportamiento
+  - Desarrollo del sistema de mensajes y comentarios
 
 #### **Stepan**
 - **Rol**: Desarrollador, Contribuidor de Contenido

@@ -32,7 +32,7 @@
         <!-- Sección del formulario de contacto -->
         <section class="contact-form">
             <h2>Formulario de Contacto</h2>
-            <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
+            <form style="display: flex; flex-direction: column; gap: 1rem;">
                 <!-- Campo de entrada para el nombre -->
                 <div class="form-group">
                     <label for="name">Nombre completo:</label>
@@ -74,6 +74,21 @@
             </form>
         </section>
 
+        <!-- Comment section -->
+        <section class="messages-section">
+            <button id="showMessages" class="show-messages-btn">Abrir sección de comentarios</button>
+            <div id="messagesList" class="messages-list" style="display: none;">
+                <div class="quick-message-form">
+                    <input type="text" id="quickName" placeholder="Tu nombre" required>
+                    <textarea id="quickMessage" placeholder="Escribe tu comentario" required></textarea>
+                    <button id="sendQuickMessage">Enviar comentario</button>
+                </div>
+                <div id="commentsContainer">
+                    <!-- Comments will appear here -->
+                </div>
+            </div>
+        </section>
+
         <!-- Sección de información de contacto -->
         <section class="contact-info">
             <h2>Información de Contacto</h2>
@@ -85,7 +100,7 @@
             </div>
         </section>
     </main>
-
+    
     <footer>
         <!-- Pie de página con derechos de autor y enlaces a redes sociales -->
         <p>&copy; 2024 Inmobiliaria Mediterráneo. Todos los derechos reservados.</p>
@@ -98,5 +113,35 @@
 
     <!-- Enlace a archivo JavaScript externo -->
     <script src="script.js"></script>
+    <script>
+        document.getElementById('showMessages').addEventListener('click', function() {
+            const messagesList = document.getElementById('messagesList');
+            if (messagesList.style.display === 'none') {
+                messagesList.style.display = 'block';
+                this.textContent = 'Cerrar comentarios';
+            } else {
+                messagesList.style.display = 'none';
+                this.textContent = 'Abrir sección de comentarios';
+            }
+        });
+
+        document.getElementById('sendQuickMessage').addEventListener('click', function() {
+            const name = document.getElementById('quickName').value;
+            const message = document.getElementById('quickMessage').value;
+            
+            if (name && message) {
+                const commentDiv = document.createElement('div');
+                commentDiv.className = 'message-item';
+                commentDiv.innerHTML = `<strong>${name}:</strong> ${message}`;
+                document.getElementById('commentsContainer').prepend(commentDiv);
+                
+                // Clear inputs
+                document.getElementById('quickName').value = '';
+                document.getElementById('quickMessage').value = '';
+            } else {
+                alert('Por favor, rellena todos los campos');
+            }
+        });
+    </script>
 </body>
 </html>
