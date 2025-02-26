@@ -354,7 +354,7 @@ El código CSS define los estilos para un popup:
   - Creación del formulario de contacto y su comportamiento
   - Desarrollo del sistema de mensajes y comentarios
   - Implementacion de mostrar/ocultar precio de las propiedades.
-  - Implementacion agrandar imagenes del carrusel.
+  - Implementacion agrandar imágenes del carrusel.
 
 #### **Stepan**
 - **Rol**: Desarrollador, Contribuidor de Contenido
