@@ -56,6 +56,9 @@
                 <li><a class="active" href="index.html">Inicio</a></li>
                 <li><a href="contact.html">Contacto</a></li>
                 <li><a href="aboutus.html">Sobre nosotros</a></li>
+                <li><button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button></li>
             </ul>
         </nav>
     </header>
@@ -93,18 +96,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Mostrar el popup al cargar la página
-        window.onload = function() {
-            document.getElementById('popup').classList.add('active');
-        };
-
-        // Cerrar el popup al enviar el formulario
-        document.getElementById('subscriptionForm').onsubmit = function(event) {
-            event.preventDefault();
-            // Aquí puedes añadir la lógica para enviar el formulario
-            document.getElementById('popup').classList.remove('active');
-        };
-    </script>
 </body>
 </html>
