@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Properties | Inmobiliaria Mediterráneo</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        .control-panel {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .property-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .property-card h3 {
+            color: #2c68ac;
+            margin-bottom: 1rem;
+        }
+        .property-features {
+            list-style: none;
+            padding: 0;
+        }
+        .property-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .property-features li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #2c68ac;
+        }
+        .filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        input, select, button {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #2c68ac;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #1c3b7f;
+        }
+        .price {
+            color: #2c68ac;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav aria-label="Primary Navigation">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+                <li><a href="aboutus.html">Sobre nosotros</a></li>
+                <li><a href="list-all-properties.html" class="active"><strong>Todas las propiedades</strong></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="test-container">
+        <h1>Test Properties Database</h1>
+        
+        <section class="control-panel">
+            <div class="filters">
+                <div>
+                    <label for="priceFilter">Precio máximo:</label>
+                    <input type="number" id="priceFilter" min="0" step="50000" placeholder="Ej: 500000">
+                    <button onclick="applyPriceFilter()">Filtrar por precio</button>
+                </div>
+                
+                <div>
+                    <label for="locationFilter">Ubicación:</label>
+                    <select id="locationFilter">
+                        <option value="Mallorca">Mallorca</option>
+                        <option value="Menorca">Menorca</option>
+                        <option value="Ibiza">Ibiza</option>
+                    </select>
+                    <button onclick="applyLocationFilter()">Filtrar por ubicación</button>
+                </div>
+            </div>
+
+            <div class="sorting">
+                <button onclick="applySortPrice(true)">Ordenar por precio ↑</button>
+                <button onclick="applySortPrice(false)">Ordenar por precio ↓</button>
+                <button onclick="applySortTitle(true)">Ordenar por título A-Z</button>
+                <button onclick="applySortTitle(false)">Ordenar por título Z-A</button>
+                <button onclick="applySortViews(true)">Ordenar por visitas ↑</button>
+                <button onclick="applySortViews(false)">Ordenar por visitas ↓</button>
+            </div>
+        </section>
+
+        <section id="propertyGrid" class="property-grid">
+            <!-- Properties will be displayed here -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Inmobiliaria Mediterráneo. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function displayProperties(propertiesList) {
+            const grid = document.getElementById('propertyGrid');
+            grid.innerHTML = '';
+
+            propertiesList.forEach(property => {
+                const card = document.createElement('div');
+                card.className = 'property-card';
+                card.innerHTML = `
+                    <h3>${property.title}</h3>
+                    <p>${property.description}</p>
+                    <p class="price">${property.price.toLocaleString('es-ES')} €</p>
+                    <p><strong>Ubicación:</strong> ${property.location}</p>
+                    <p><strong>Superficie:</strong> ${property.squareMeters} m²</p>
+                    <p><strong>Visitas:</strong> ${property.views}</p>
+                    <ul class="property-features">
+                        ${property.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function applyPriceFilter() {
+            const maxPrice = document.getElementById('priceFilter').value;
+            if (maxPrice) {
+                const filtered = filterByPrice(Number(maxPrice));
+                displayProperties(filtered);
+            }
+        }
+
+        function applyLocationFilter() {
+            const location = document.getElementById('locationFilter').value;
+            const filtered = filterByLocation(location);
+            displayProperties(filtered);
+        }
+
+        function applySortPrice(ascending) {
+            const sorted = sortByPrice(ascending);
+            displayProperties(sorted);
+        }
+
+        function applySortTitle(ascending) {
+            const sorted = sortByTitle(ascending);
+            displayProperties(sorted);
+        }
+
+        function applySortViews(ascending) {
+            const sorted = sortByViews(ascending);
+            displayProperties(sorted);
+        }
+
+        // Initial display
+        displayProperties(properties);
+    </script>
+</body>
+</html>

@@ -361,3 +361,6 @@ El código CSS define los estilos para un popup:
 - **Responsabilidades**:
   - Diseño y desarrollo de las páginas individuales de propiedades para las casas 1 a 5 (`casa1.html` a `casa5.html`).
   - Organización de la documentación del proyecto.
+  - Implementación de activar/desactivar modo ocsuro.
+  - Implementación de validacion del formulario de contacto con una función de JavaScript.
+  - Implementación de la pagina de mostrar y filtrar todas las propiedades.

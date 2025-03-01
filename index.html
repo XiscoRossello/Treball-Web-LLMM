@@ -42,6 +42,20 @@
 .message-item:last-child {
     border-bottom: none;
 }
+        .button-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #2c68ac;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .button-link:hover {
+            background-color: #1c3b7f;
+        }
     </style>
 </head>
 <body>
@@ -80,6 +94,7 @@
                     <option value="ibiza.html">Ibiza</option>
                 </select>
                 <button type="submit">Buscar</button>
+                <a href="list-all-properties.html" class="button-link">Mostrar todas las propiedades</a>
             </form>
         </section>
     </main>
